@@ -58,3 +58,55 @@ accounts.forEach(function(account) {
       }
     });
   });
+
+/**
+truffle(Voting)> ins.methods
+{
+  'candidateList(uint256)': [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  'votesReceived(bytes32)': [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  'totalVotesFor(bytes32)': [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  'voteForCandidate(bytes32)': [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  'validCandidate(bytes32)': [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  }
+}
+
+truffle(Voting)> ins.methods['candidateList(uint256)']
+[Function (anonymous)] {
+  call: [Function (anonymous)],
+  sendTransaction: [Function (anonymous)],
+  estimateGas: [Function (anonymous)],
+  request: [Function (anonymous)]
+}
+
+truffle(Voting)> ins.candidateList
+[Function (anonymous)] {
+  call: [Function (anonymous)],
+  sendTransaction: [Function (anonymous)],
+  estimateGas: [Function (anonymous)],
+  request: [Function (anonymous)]
+}
+*/

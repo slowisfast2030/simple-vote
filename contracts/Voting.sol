@@ -83,7 +83,7 @@ contract Voting {
         return candidateMap[candidate];
     }
      */  
-    function validCandidate(bytes32 candidate) view public returns (bool) {
+    function validCandidate(bytes32 candidate) public view returns (bool) {
         for(uint i = 0; i < candidateList.length; i++) {
             if (candidateList[i] == candidate) {
                 return true;

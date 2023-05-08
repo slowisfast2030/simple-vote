@@ -69,6 +69,18 @@ contract Voting {
 
     // Check if the candidate is valid
     // 所有的被投票对象是一个数组。如何检测一个元素是否在数组中？没有简单的in操作。只能循环遍历。
+    // 但是，如果数组很大，这样的操作会消耗大量的gas。所以，我们需要一个更好的方法。
+    /**
+    mapping(bytes32 => bool) public candidateMap;
+    
+    function addCandidate(bytes32 candidate) public {
+        candidateMap[candidate] = true;
+    }
+    
+    function validCandidate(bytes32 candidate) view public returns (bool) {
+        return candidateMap[candidate];
+    }
+     */  
     function validCandidate(bytes32 candidate) view public returns (bool) {
         for(uint i = 0; i < candidateList.length; i++) {
             if (candidateList[i] == candidate) {

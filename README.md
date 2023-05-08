@@ -9,9 +9,7 @@ web3.js是一个JavaScript库，它抽象出了所有的RPC调用，以便于你
 ```js
 truffle console> web3.utils.keccak256('voteForCandidate(bytes32)').slice(0,10)
 ```
-
 返回
-
 ```js
 '0xcc9ab267'
 ```

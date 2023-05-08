@@ -28,7 +28,7 @@ web3.eth.sendTransaction({
 truffle console> ins.voteForCandidate.request('0x5678')
 ```
 返回
-```
+```js
 {
   from: '0x0d432780D47bc46F84068e2cF83916B6289C0FdD',
   to: '0xbE3Be9BD3fB55509ee0205356F6201c19EE15F5D'，

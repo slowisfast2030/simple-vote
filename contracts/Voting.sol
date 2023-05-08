@@ -11,11 +11,13 @@ contract Voting {
         candidateList = candidateNames;
     }
 
+    // 获取某个候选人的总票数
     function totalVotesFor(bytes32 candidate) view public returns (uint8) {
         require(validCandidate(candidate));
         return votesReceived[candidate];
     }
 
+    // 投票给某个候选人
     function voteForCandidate(bytes32 candidate) public {
         require(validCandidate(candidate));
         votesReceived[candidate] += 1;

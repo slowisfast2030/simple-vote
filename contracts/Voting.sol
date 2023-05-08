@@ -73,8 +73,10 @@ contract Voting {
     /**
     mapping(bytes32 => bool) public candidateMap;
     
-    function addCandidate(bytes32 candidate) public {
-        candidateMap[candidate] = true;
+    function addCandidate() public {
+        for (uint i = 0; i < candidateList.length; i++) {
+            candidateMap[candidateList[i]] = true;
+        }
     }
     
     function validCandidate(bytes32 candidate) view public returns (bool) {

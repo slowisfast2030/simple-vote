@@ -1,0 +1,3 @@
+我们与区块链进行通信的方式是通过RPC。
+
+web3.js是一个JavaScript库，它抽象出了所有的RPC调用，以便于你可以通过JavaScript与区块链进行交互。另一个好处是，web3.js能够让你使用你最喜欢的JavaScript框架构建非常棒的web应用。

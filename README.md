@@ -161,6 +161,7 @@ accounts.forEach(function(account) {
 ```
 
 ## trick
+命令
 ```js
 truffle(Voting)> ins.methods
 ```
@@ -199,6 +200,7 @@ truffle(Voting)> ins.methods
   }
 }
 ```
+命令
 ```js
 truffle(Voting)> ins.methods['candidateList(uint256)']
 ```
@@ -211,7 +213,7 @@ truffle(Voting)> ins.methods['candidateList(uint256)']
   request: [Function (anonymous)]
 }
 ```
-
+命令
 ```js
 truffle(Voting)> ins.candidateList
 ```

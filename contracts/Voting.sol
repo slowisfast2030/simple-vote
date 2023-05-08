@@ -23,6 +23,9 @@ contract Voting {
     // ins.printVotes().then(function(res){for(i=0;i<3;i++){console.log(res[0][i]+': '+res[1][i])}})
     function printVotes() view public returns (bytes32[] memory, uint8[] memory) {
         uint len = candidateList.length;
+        // In Solidity, when declaring a variable inside a function, 
+        // you need to specify the data location of the variable 
+        // using the memory or storage keyword.
         bytes32[] memory names = new bytes32[](len);
         uint8[] memory votes = new uint8[](len);
         

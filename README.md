@@ -49,42 +49,44 @@ truffle console> ins.voteForCandidate.request('0x5678')
 ## example
 
 ```solidity
-pragma solidity ^0.8.0;
+   pragma solidity ^0.8.0;
 
-contract Example {
-    struct Data {
-        uint x;
-        uint y;
-    }
+   contract Example {
+       struct Data {
+           uint x;
+           uint y;
+       }
 
-    Data[] public data;
-}
+       Data[] public data;
+   }
 
-// 我们可以定义不同类型和不同data location的函数来操作这个数组，比如：
+   // 我们可以定义不同类型和不同data location的函数来操作这个数组，比如：
 
-// external函数，参数使用calldata
-function addData (Data calldata _data) external {
-    data.push(_data); // 将参数复制到存储中的数组
-}
+   // external函数，参数使用calldata
+   function addData (Data calldata _data) external {
+       data.push(_data); // 将参数复制到存储中的数组
+   }
 
-// public函数，参数使用memory
-function updateData (uint _index, Data memory _data) public {
-    data[_index] = _data; // 将参数复制到存储中的数组元素
-}
+   // public函数，参数使用memory
+   function updateData (uint _index, Data memory _data) public {
+       data[_index] = _data; // 将参数复制到存储中的数组元素
+   }
 
-// internal函数，参数使用storage
-function swapData (uint _i, uint _j) internal {
-    Data storage temp = data[_i]; // 创建一个指向存储中数组元素的引用
-    data[_i] = data[_j]; // 将数组元素交换
-    data[_j] = temp;
-}
+   // internal函数，参数使用storage
+   function swapData (uint _i, uint _j) internal {
+       Data storage temp = data[_i]; // 创建一个指向存储中数组元素的引用
+       data[_i] = data[_j]; // 将数组元素交换
+       data[_j] = temp;
+   }
 
-// private函数，参数使用memory
-function compareData (Data memory _a, Data memory _b) private pure returns (bool) {
-    return _a.x + _a.y > _b.x + _b.y; // 比较两个参数的和
-}
+   // private函数，参数使用memory
+   function compareData (Data memory _a, Data memory _b) private pure returns (bool) {
+       return _a.x + _a.y > _b.x + _b.y; // 比较两个参数的和
+   }
 
 ```
+
 ## 规则
+
 值类型不需要指定data location
 引用类型需要指定data location

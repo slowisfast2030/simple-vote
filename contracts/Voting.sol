@@ -7,7 +7,8 @@ contract Voting {
     bytes32[] public candidateList;
 
     // bytes32[] candidateList = [bytes32("Alice"), bytes32("Bob")];
-    constructor(bytes32[] memory candidateNames) public {
+    //  Data location must be "memory" for parameter in function, but none was given.
+    constructor(bytes32[] memory candidateNames) public{
         candidateList = candidateNames;
         initVotes();
     }
@@ -40,6 +41,12 @@ contract Voting {
     ins.totalVotesFor.sendTransaction('0x1234')
     前两种调用仅仅是一个call，不会修改合约状态，也不会消耗gas。
     第三种调用会发送一个交易。
+     */
+    /**
+    这个函数不需要指定参数的数据位置，因为参数candidate是一个bytes32类型，
+    它是一个值类型，而不是一个引用类型。值类型不需要指定数据位置，
+    因为它们总是通过值传递，并且总是被复制到内存或栈中。
+    只有引用类型（例如struct, array, mapping等）需要指定数据位置，以便编译器知道它们在哪里存储和访问。
      */
     function totalVotesFor(bytes32 candidate) view public returns (uint8) {
         require(validCandidate(candidate));

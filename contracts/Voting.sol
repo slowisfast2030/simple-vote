@@ -5,6 +5,7 @@ pragma solidity ^0.5.16;
 contract Voting {
     mapping (bytes32 => uint8) public votesReceived;
     bytes32[] public candidateList;
+    bytes32[] public courseMap = [bytes32("Chinese"), "English", "Math", "Computer", "Music"];
 
     // bytes32[] candidateList = [bytes32("Alice"), bytes32("Bob")];
     //  Data location must be "memory" for parameter in function, but none was given.
@@ -17,6 +18,10 @@ contract Voting {
         for (uint i = 0; i < candidateList.length; i++) {
             votesReceived[candidateList[i]] = 10;
         }
+    }
+
+    function getCourses() view public returns (bytes32[] memory) {
+        return courseMap;
     }
 
     // ins.printVotes().then(function(res){console.log(res[0]); console.log(res[1])})

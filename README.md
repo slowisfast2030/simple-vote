@@ -227,3 +227,33 @@ truffle(Voting)> ins.candidateList
   request: [Function (anonymous)]
 }
 ```
+
+## 函数结果的遍历
+```js
+function printVotes() view public returns (bytes32[] memory, uint8[] memory) {
+        uint len = candidateList.length;
+        bytes32[] memory names = new bytes32[](len);
+        uint8[] memory votes = new uint8[](len);
+        
+        for (uint i = 0; i < len; i++) {
+            names[i] = candidateList[i];
+            votes[i] = votesReceived[candidateList[i]];
+        }
+        return (names, votes);
+    }
+```
+在truffle console环境下有三种方法打印结果
+```js
+// 回调函数
+ins.printVotes(function(err, res){console.log(res)})
+```
+```js
+// promise
+ins.printVotes().then(function(res){console.log(res)})
+```
+```js
+// await
+res = await ins.printVotes()
+console.log(res)
+```
+

@@ -5,45 +5,13 @@ pragma solidity ^0.5.16;
 contract Voting {
     mapping (bytes32 => uint8) public votesReceived;
     bytes32[] public candidateList;
-    bytes32[] public courseMap = [bytes32("Chinese"), "English", "Math", "Computer", "Music"];
-    bytes8[] public schoolList = [bytes8("PKU"), "THU", "FUDAN", "SJTU", "ZJU"];
-    string public name = "Voting";
 
     // bytes32[] candidateList = [bytes32("Alice"), bytes32("Bob")];
     //  Data location must be "memory" for parameter in function, but none was given.
     constructor(bytes32[] memory candidateNames) public{
         candidateList = candidateNames;
-        initVotes();
-    }
-
-    function initVotes() public {
-        for (uint i = 0; i < candidateList.length; i++) {
-            votesReceived[candidateList[i]] = 10;
-        }
     }
     
-    /**
-    '0x504b550000000000',
-    '0x5448550000000000',
-    '0x465544414e000000',
-    '0x534a545500000000',
-    '0x5a4a550000000000'
-    */
-    function getSchools() view public returns (bytes8[] memory) {
-        return schoolList;
-    }
-
-    /**
-    '0x4368696e65736500000000000000000000000000000000000000000000000000',
-    '0x456e676c69736800000000000000000000000000000000000000000000000000',
-    '0x4d61746800000000000000000000000000000000000000000000000000000000',
-    '0x436f6d7075746572000000000000000000000000000000000000000000000000',
-    '0x4d75736963000000000000000000000000000000000000000000000000000000'
-     */
-    function getCourses() view public returns (bytes32[] memory) {
-        return courseMap;
-    }
-
     // ins.printVotes().then(function(res){console.log(res[0]); console.log(res[1])})
     // ins.printVotes().then(function(res){for(i=0;i<3;i++){console.log(res[0][i]+': '+res[1][i])}})
     function printVotes() view public returns (bytes32[] memory, uint8[] memory) {
